@@ -1,0 +1,106 @@
+
+.task-list {
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scroll if content overflows */
+  padding: 2rem;
+  background-color: #f9fafb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-dropdown {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.task-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.task-card h4 {
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.task-card p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+
+.task-card select {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.update-btn {
+  margin-top: 0.6rem;
+  padding: 0.5rem 1rem;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.update-btn:hover {
+  background-color: #2b6cb0;
+}
+
+
+.delete-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.delete-btn:hover {
+  background-color: #c53030;
+}
+
+
