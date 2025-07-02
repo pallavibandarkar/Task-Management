@@ -44,6 +44,22 @@ A simple collaborative task manager built using the MERN stack. Users can create
 
 ---
 
+## Screenshots
+
+### Login / Register Page
+![Login Page](./screenshots/login.png)
+
+---
+
+### 📝 Create Task Form
+![Create Task](./screenshots/createtask.png)
+
+---
+
+### 📋 Task List View (Grid Layout)
+![Task List](./screenshots/task.png)
+
+
 ## Run Locally
 ## Installation & Setup
 
@@ -52,14 +68,16 @@ A simple collaborative task manager built using the MERN stack. Users can create
 ```bash
 git clone https://github.com/pallavibandarkar/Task-Management
 cd Task-Management
+````
 
-
-Backend
+##Backend
 
 ```bash
 cd BACKEND
 npm install
-node app.js
+node app.js 
+````
+
 
 Create a .env file inside /backend with the following content:
 ATLAS_URL=your_mongodb_connection_string
@@ -106,25 +124,6 @@ Tasks can be filtered using query parameters with the GET `/task` endpoint:
 
 - status – Filter tasks by (To Do, In Progress, Done)
 - assignedTo – Filter tasks by assigned username
-
----
-
-Screenshots
-
-Login / Register Page
-![Login Page](./screenshots/login.png)
-
----
-
-Create Task Form
-![Create Task](./screenshots/createtask.png)
-
----
-
-Task List View (Grid Layout)
-![Task List](./screenshots/task.png)
-
----
 
 
 
