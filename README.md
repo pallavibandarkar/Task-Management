@@ -50,7 +50,7 @@ A simple collaborative task manager built using the MERN stack. Users can create
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/collaborative-task-manager.git
+git clone https://github.com/pallavibandarkar/Task-Management
 cd collaborative-task-manager
 
 ### Backend
