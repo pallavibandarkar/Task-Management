@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaUserAlt, FaClipboardList, FaTrashAlt, FaCheck } from 'react-icons/fa';
 
 
-const TaskList = ({ user, type }) => {
+const TaskList = ({ user, type, refreshTasks}) => {
   const [tasks, setTasks] = useState([]);
   const [statusFilter, setStatusFilter] = useState('');
   const [assigneeFilter, setAssigneeFilter] = useState('');
@@ -57,7 +57,7 @@ const TaskList = ({ user, type }) => {
 
   useEffect(() => {
     fetchTasks();
-  }, [statusFilter, assigneeFilter]);
+  }, [statusFilter, assigneeFilter,refreshTasks]);
 
   const handleDelete = async (taskId) => {
     const token = localStorage.getItem('token');
@@ -68,7 +68,7 @@ const TaskList = ({ user, type }) => {
         },
       });
       
-      alert('Task deleted successfully');
+      toast.success('Task deleted successfully');
       fetchTasks();
     } catch (err) {
       toast.error('Error deleting task')
@@ -189,7 +189,7 @@ const TaskList = ({ user, type }) => {
           ))
         )}
       </div>
-      <ToastContainer/>
+      
     </div>
   );
 };

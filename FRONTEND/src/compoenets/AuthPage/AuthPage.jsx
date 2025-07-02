@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './AuthPage.css'; 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const AuthPage = ({ setUser }) => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [form, setForm] = useState({
     username: '',
@@ -51,6 +53,7 @@ const AuthPage = ({ setUser }) => {
       setMsg(`${isLogin ? 'Login' : 'Signup'} successful`);
       toast.success(`${isLogin ? 'Login' : 'Signup'} successful`)
       setForm({ username: "", email: "", password: "" });
+      navigate('/dashboard'); 
     } catch (err) {
       toast.error(err.response?.data?.msg || 'Error occurred ');
     }

@@ -3,18 +3,22 @@ import './DashBoard.css';
 import TaskForm from '../TaskForm/TaskForm';
 import TaskList from '../TaskList/TaskList';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router';
 
 const DashBoard = ({ user, setUser }) => {
   const [showForm, setShowForm] = useState(false);
   const [createdCount, setCreatedCount] = useState(0);
   const [assignedCount, setAssignedCount] = useState(0);
-
-
+  const [refreshTasks, setRefreshTasks] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setUser(null);
+    navigate('/dashboard')
   };
 
   // Fetch counts for display
@@ -46,7 +50,9 @@ const DashBoard = ({ user, setUser }) => {
     };
 
     fetchTaskCounts();
-  }, [user]);
+  }, [user,createdCount]);
+
+  
 
   return (
     <div className="dashboard-container">
@@ -68,15 +74,16 @@ const DashBoard = ({ user, setUser }) => {
               {showForm ? 'Hide Form' : 'Create Task'}
             </button>
           </div>
-          {showForm && <TaskForm user={user} />}
-          <TaskList  user={user} type="createdBy" />
+          {showForm && <TaskForm user={user} setRefreshTasks={setRefreshTasks} setCreatedCount={setCreatedCount}/>}
+          <TaskList  user={user} type="createdBy" refreshTasks={refreshTasks} createdCount = {createdCount}  />
         </div>
 
         <div className="right-panel">
           <h3>Tasks Assigned to Me ({assignedCount})</h3>
-          <TaskList user={user} type="assignedTo" />
+          <TaskList user={user} type="assignedTo"   />
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

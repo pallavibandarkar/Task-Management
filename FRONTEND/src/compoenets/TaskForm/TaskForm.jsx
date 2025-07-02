@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const TaskForm = ({ user }) => {
+const TaskForm = ({user, setRefreshTasks, setCreatedCount }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [assignedTo, setAssignedTo] = useState('');
@@ -59,6 +59,8 @@ const TaskForm = ({ user }) => {
     setDescription('');
     setAssignedTo('');
     setStatus('To Do');
+    setRefreshTasks(prev => !prev);
+    setCreatedCount(prev => prev+1);
   } catch (error) {
     console.error('Error:', error);
     toast.error('Something went wrong ');
@@ -108,7 +110,7 @@ const TaskForm = ({ user }) => {
       <button type="submit">Create Task</button>
 
     </form>
-    <ToastContainer/>
+    
     </>
   );
 };

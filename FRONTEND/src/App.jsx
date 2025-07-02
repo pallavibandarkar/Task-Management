@@ -1,29 +1,51 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes } from 'react-router'
+import { Route, Routes , useNavigate, Navigate} from 'react-router'
 import AuthPage from './compoenets/AuthPage/AuthPage';
 import Dashboard from './compoenets/DashBoard/DashBoard';
-import { ToastContainer } from 'react-toastify';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("user");
 
     if (token && userData) {
-      console.log("Logged in user")
       setUser(JSON.parse(userData));
+      navigate("/dashboard"); 
+    } else {
+      navigate("/welcome"); 
     }
   }, []);
   return (
-    <div>
-      {!user ? (
-        <AuthPage setUser={setUser} />
-        ) : (
-        <Dashboard user={user} setUser={setUser}/>
-        )}
-      <ToastContainer/>
-    </div>
+    <>
+      <Routes>
+        <Route
+          path="/welcome"
+          element={<AuthPage setUser={setUser} />}
+        />
+
+        <Route
+          path="/dashboard"
+          element={
+            user ? (
+              <Dashboard user={user} setUser={setUser} />
+            ) : (
+              <Navigate to="/welcome" />
+            )
+          }
+        />
+
+        <Route
+          path="*"
+          element={<Navigate to={user ? "/dashboard" : "/welcome"} />}
+        />
+      </Routes>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </>
+    
   )
 }
 
