@@ -53,7 +53,8 @@ A simple collaborative task manager built using the MERN stack. Users can create
 git clone https://github.com/pallavibandarkar/Task-Management
 cd Task-Management
 
-### Backend
+
+Backend
 
 ```bash
 cd BACKEND
@@ -64,61 +65,63 @@ Create a .env file inside /backend with the following content:
 ATLAS_URL=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 
-### FRONTEND
+FRONTEND
 
 ```bash
 cd FRONTEND
 npm install
 npm run dev
 
-##  API Documentation
+API Documentation
 
-### Authentication
+Authentication
 
-- **Register:**  
+- Register: 
   Send a POST request to `/user/register` with `username`,`email` and `password` in the body to create a new user account.
 
-- **Login:**  
+- Login:  
   Send a POST request to `/user/login` with valid credentials. Returns a JWT token on success. This token is required for accessing protected routes.
 
 ---
 
-### Task Management
+Task Management
 
-- **Create Task:**  
+- Create Task:
   Send a POST request to `/task` with `title`, `description`, `assignedTo`, and `status`. Only authenticated users can create tasks.
 
-- **Get All Tasks:**  
+- Get All Tasks:  
   Send a GET request to `/task`. Returns all tasks that the user created or was assigned to. You can apply filters using query parameters like `status` or `assignedTo`.
 
-- **Update Task Status:**  
+- Update Task Status: 
   Send a PUT request to `/task/:id` with a new `status` in the request body. Only the assignee can update the task status.
 
-- **Delete Task:**  
+- Delete Task:  
   Send a DELETE request to `/task/:id`. Only the user who created the task can delete it.
 
 ---
 
-### Filtering
+Filtering
 
 Tasks can be filtered using query parameters with the GET `/task` endpoint:
 
-- `status` – Filter tasks by  (`To Do`, `In Progress`, `Done`)
-- `assignedTo` – Filter tasks by assigned username
+- status – Filter tasks by (To Do, In Progress, Done)
+- assignedTo – Filter tasks by assigned username
 
-## Screenshots
+---
 
-### Login / Register Page
+Screenshots
+
+Login / Register Page
 ![Login Page](./screenshots/login.png)
 
 ---
 
-### 📝 Create Task Form
+Create Task Form
 ![Create Task](./screenshots/createtask.png)
 
 ---
 
-### 📋 Task List View (Grid Layout)
+Task List View (Grid Layout)
 ![Task List](./screenshots/task.png)
 
 ---
