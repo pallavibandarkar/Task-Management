@@ -51,7 +51,7 @@ A simple collaborative task manager built using the MERN stack. Users can create
 
 ```bash
 git clone https://github.com/pallavibandarkar/Task-Management
-cd collaborative-task-manager
+cd Task-Management
 
 ### Backend
 
