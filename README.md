@@ -70,7 +70,7 @@ git clone https://github.com/pallavibandarkar/Task-Management
 cd Task-Management
 ````
 
-##Backend
+Backend
 
 ```bash
 cd BACKEND
@@ -78,18 +78,18 @@ npm install
 node app.js 
 ````
 
-
 Create a .env file inside /backend with the following content:
+```
 ATLAS_URL=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+````
 
 FRONTEND
-
 ```bash
 cd FRONTEND
 npm install
 npm run dev
-
+````
 API Documentation
 
 Authentication
